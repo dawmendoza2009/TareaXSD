@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+	<xs:element name="tienda">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="productos">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="producto"  minOccurs="1" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="clientes">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="cliente"  minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="producto">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="nombreproducto" type="xs:string" />
+				<xs:element name="categoria" type="xs:string" />			
+				<xs:element name="precio" type="xs:decimal" />
+				<xs:element name="fecha" type="xs:date" />
+				<xs:element name="descripcion" type="xs:string" />
+			</xs:sequence>
+			<!--definición de atributos-->
+			<xs:attribute name="codigo" type="codigopatron"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="cliente">
+		<xs:complexType>
+			<xs:all>
+				<!--En lugar de secuencia all ya que en este caso nos dará igual el orden de los elementos-->
+				<xs:element name="nombre" type="xs:string" />
+				<xs:element name="apellido" type="xs:string" />
+				<!--Se declara la restrinccion fuera-->
+				<xs:element name="mail" type="r-mail" />
+				<xs:element name="dni" type="r-dni" />
+				<xs:element name="provincia" type="xs:string" />				
+				<xs:element name="codigopostal" type="xs:integer" />
+				<xs:element name="fechanacimiento" type="xs:date" />
+				<xs:element name="edad" type="xs:integer" />
+				<xs:element name="telefono" type="r-telefono"/>
+			</xs:all>
+			<!--definición de atributos-->
+			<xs:attribute name="codigo" type="codigopatron"/>
+		</xs:complexType>
+	</xs:element>
+
+	<!--RESTRINCIONES:-->
+	<!-- restrinción para el código de producto y cliente-->
+	<xs:simpleType name="codigopatron">
+		<xs:restriction base="xs:string">
+			<!--el patrón se compone de 3 letras de la A a la Z mayúsculas, guión, 2 letras, guión y 4 números-->
+			<xs:pattern value="[A-Z]{3}-[A-Z]{2}-[0-9]{4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- restrinción mail para que tenga formato mail-->
+	<xs:simpleType name="r-mail">
+		<xs:restriction base="xs:string">
+			<!--el patrón se compone de varias letras de la A a la Z, un @, varias letras, un punto y 3 letrasde la A a la Z números-->
+			<xs:pattern value="([a-z0-9])*@([a-z])*.([a-z]){3}" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!--restrinción longitud del telefono 9-->
+	<xs:simpleType name="r-telefono">
+		<xs:restriction
+		base="xs:string">
+			<!--<xs:length value="9" />-->
+			<xs:pattern value="\(\+[0-9]{3}\)[0-9]{9}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!--restrinción DNI el dni tendrá 8 numeros y 1 letra mayuscula-->
+	<xs:simpleType name="r-dni">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{8}[A-Z]{1}" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

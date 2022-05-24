@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tienda xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="xsd.xsd">
+	<!--schemaLocation: archivo externo donde está el xsd-->
+	<productos>
+		<producto codigo="VID-ES-0012">
+			<nombreproducto>Minecraft</nombreproducto>
+			<categoria>Video juego</categoria>
+			<precio>40</precio>
+			<fecha>2022-12-05</fecha>
+			<descripcion>
+				Minecraft es un videojuego de mundo abierto donde la exploración y las construcciones son fundamentales.
+			</descripcion>
+		</producto>
+		<producto codigo="MUS-FR-0077">
+			<nombreproducto>Shakira</nombreproducto>
+			<categoria>Música</categoria>
+			<precio>100</precio>
+			<fecha>2020-03-10</fecha>
+			<descripcion>
+				Nueva versión del disco de Shakira.
+			</descripcion>
+		</producto>
+	</productos>
+	<clientes>
+		<cliente codigo="CLI-ES-0156">
+			<nombre>Tatiana</nombre>
+			<apellido>Gutierrez</apellido>
+			<dni>55346667K</dni>
+			<mail>pablo157@gmail.com</mail>
+			<provincia>Madrid</provincia>
+			<codigopostal>28017</codigopostal>
+			<edad>28</edad>
+			<fechanacimiento>1993-12-11</fechanacimiento>
+			<telefono>(+034)617867854</telefono>
+		</cliente>
+		
+	</clientes>
+</tienda>
