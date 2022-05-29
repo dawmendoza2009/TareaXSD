@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tienda xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:noNamespaceSchemaLocation="xsd.xsd">
+<?xml-stylesheet type="text/xsl" href="estilo.xsl"?>
+<tienda xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xsd.xsd">
+
 	<!--schemaLocation: archivo externo donde está el xsd-->
 	<productos>
 		<producto codigo="VID-ES-0012">
@@ -23,6 +24,35 @@ xsi:noNamespaceSchemaLocation="xsd.xsd">
 		</producto>
 	</productos>
 	<clientes>
+		<cliente codigo="CLI-ES-0154">
+			<nombre>Daniela</nombre>
+			<apellido>Moreno</apellido>
+			<apellido2>Fernandez</apellido2>
+			<dni>75346667L</dni>
+			<mail>danielamoreno57@gmail.com</mail>
+			<provincia>Madrid</provincia>
+			<codigopostal>28026</codigopostal>
+			<edad>28</edad>
+			<sexo>Mujer</sexo>
+			<tipocliente>
+				<clienteantiguo>Desde 1900</clienteantiguo>
+			</tipocliente>
+			<telefono>(+034)617867854</telefono>
+		</cliente>
+		<cliente codigo="CLI-ES-0155">
+			<nombre>Jose Luis</nombre>
+			<apellido>Pomacusi</apellido>
+			<dni>88346667H</dni>
+			<mail>pablo157@gmail.com</mail>
+			<provincia>Barcelona</provincia>
+			<codigopostal>28017</codigopostal>
+			<tipocliente>
+				<clientenuevo>Desde 2022</clientenuevo>			
+			</tipocliente>
+			<edad>28</edad>
+			<sexo>Mujer</sexo>
+			<telefono>(+034)617867854</telefono>
+		</cliente>
 		<cliente codigo="CLI-ES-0156">
 			<nombre>Tatiana</nombre>
 			<apellido>Gutierrez</apellido>
@@ -30,10 +60,9 @@ xsi:noNamespaceSchemaLocation="xsd.xsd">
 			<mail>pablo157@gmail.com</mail>
 			<provincia>Madrid</provincia>
 			<codigopostal>28017</codigopostal>
-			<edad>28</edad>
-			<fechanacimiento>1993-12-11</fechanacimiento>
+			<edad>28</edad>			
 			<telefono>(+034)617867854</telefono>
 		</cliente>
-		
+
 	</clientes>
 </tienda>

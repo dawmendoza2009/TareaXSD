@@ -42,18 +42,29 @@
 			<xs:all>
 				<!--En lugar de secuencia all ya que en este caso nos dará igual el orden de los elementos-->
 				<xs:element name="nombre" type="xs:string" />
-				<xs:element name="apellido" type="xs:string" />
+				<xs:element name="apellido" type="xs:string" minOccurs="1"  />
+				<xs:element name="apellido2" type="xs:string" minOccurs="0"  />
+				<xs:element ref="tipocliente" minOccurs="0"/>
 				<!--Se declara la restrinccion fuera-->
 				<xs:element name="mail" type="r-mail" />
 				<xs:element name="dni" type="r-dni" />
 				<xs:element name="provincia" type="xs:string" />				
 				<xs:element name="codigopostal" type="xs:integer" />
-				<xs:element name="fechanacimiento" type="xs:date" />
+				<xs:element name="sexo" type="r-sexo" minOccurs="0"/>
 				<xs:element name="edad" type="xs:integer" />
 				<xs:element name="telefono" type="r-telefono"/>
 			</xs:all>
 			<!--definición de atributos-->
 			<xs:attribute name="codigo" type="codigopatron"/>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="tipocliente">
+		<xs:complexType>
+			<xs:choice>
+				<xs:element name="clientenuevo" type="xs:string" />
+				<xs:element name="clienteantiguo" type="xs:string" />
+			</xs:choice>
 		</xs:complexType>
 	</xs:element>
 
@@ -87,6 +98,13 @@
 	<xs:simpleType name="r-dni">
 		<xs:restriction base="xs:string">
 			<xs:pattern value="[0-9]{8}[A-Z]{1}" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!--restrinción Sexo  solo puede ser hombre o mujer-->
+	<xs:simpleType name="r-sexo">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="Hombre|Mujer"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
